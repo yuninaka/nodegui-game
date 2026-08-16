@@ -1,4 +1,17 @@
 {
   "name": "nodegui-game",
-  "packageManager": "yarn@4.12.0"
+  "packageManager": "yarn@4.12.0",
+  "dependencies": {
+    "@nodegui/nodegui": "^0.74.2"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.0"
+  },
+  "scripts": {
+    "start": "node_modules/@nodegui/qode/binaries/qode -r ts-node/register/transpile-only src/index.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
 }
