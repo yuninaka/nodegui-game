@@ -2,8 +2,7 @@ import { CellState, Player, Position } from "./types";
 
 export const BOARD_SIZE = 8;
 
-const createEmptyGrid = (): CellState[][] =>
-  Array.from({ length: BOARD_SIZE }, () => Array<CellState>(BOARD_SIZE).fill(null));
+const createEmptyGrid = (): CellState[][] => Array.from({ length: BOARD_SIZE }, () => Array<CellState>(BOARD_SIZE).fill(null));
 
 export class Board {
   private readonly grid: CellState[][];
@@ -23,12 +22,7 @@ export class Board {
   }
 
   isInBounds(position: Position): boolean {
-    return (
-      position.row >= 0 &&
-      position.row < BOARD_SIZE &&
-      position.col >= 0 &&
-      position.col < BOARD_SIZE
-    );
+    return position.row >= 0 && position.row < BOARD_SIZE && position.col >= 0 && position.col < BOARD_SIZE;
   }
 
   getCell(position: Position): CellState {
