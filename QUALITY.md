@@ -49,6 +49,7 @@ Nothing outstanding.
 
 | Date | Commit | Kind | Rule | What |
 | --- | --- | --- | --- | --- |
+| 2026-08-16 | ff86735a | issue | sonarjs/function-return-type | opened #4 -- flags idiomatic discriminated-union returns (MoveOutcome) in src/logic/game.ts; rule-vs-code call for the owner |
 | 2026-08-16 | ecf2d3b8 | drained | @typescript-eslint/consistent-type-assertions | 2 violations; the double 'as unknown as {win}' cast on global was asserting a property that doesn't exist on globalThis's type. Replaced with a proper 'declare global { var win }' ambient augmentation -- same runtime behavior (NodeGui widgets hold only a weak ref from native to JS, so the entry point must keep a strong JS reference alive), no more lying to the compiler |
 | 2026-08-16 | 76458303 | drained | sonarjs/argument-type | 1 violation; false-flag on Array<CellState>(n).fill(null) via the generic-constructor-call form — rewrote as nested Array.from with an explicit CellState return type, same behavior |
 | 2026-08-16 | 9eaa9910 | note |  | typescript stayed on 5.9.3 (latest is 7.0.2): typescript-eslint@8.67.0 peer range is >=4.8.4 <6.1.0, and Yarn 4.12's compat/typescript patch also fails to fetch against 7.0.2 in this environment. eslint/@eslint/js/prettier/vitest/knip/typescript-eslint are all already at latest. |
