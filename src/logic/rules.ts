@@ -30,7 +30,7 @@ const getFlippableInDirection = (board: Board, player: Player, origin: Position,
   return endsOnOwnStone ? flippable : [];
 };
 
-const getFlippableStones = (board: Board, player: Player, position: Position): Position[] =>
+export const getFlippableStones = (board: Board, player: Player, position: Position): Position[] =>
   DIRECTIONS.flatMap((direction) => getFlippableInDirection(board, player, position, direction));
 
 export const isValidMove = (board: Board, player: Player, position: Position): boolean =>
