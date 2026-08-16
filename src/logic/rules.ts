@@ -30,7 +30,7 @@ const getFlippableInDirection = (board: Board, player: Player, origin: Position,
   return endsOnOwnStone ? flippable : [];
 };
 
-export const getFlippableStones = (board: Board, player: Player, position: Position): Position[] =>
+const getFlippableStones = (board: Board, player: Player, position: Position): Position[] =>
   DIRECTIONS.flatMap((direction) => getFlippableInDirection(board, player, position, direction));
 
 export const isValidMove = (board: Board, player: Player, position: Position): boolean =>
@@ -57,8 +57,6 @@ export const applyMove = (board: Board, player: Player, position: Position): Boa
 };
 
 export const hasValidMove = (board: Board, player: Player): boolean => getValidMoves(board, player).length > 0;
-
-export const isGameOver = (board: Board): boolean => !hasValidMove(board, "black") && !hasValidMove(board, "white");
 
 export const getWinner = (board: Board): GameResult => {
   const blackCount = board.countStones("black");
