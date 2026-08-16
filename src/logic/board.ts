@@ -2,7 +2,7 @@ import { CellState, Player, Position } from "./types";
 
 export const BOARD_SIZE = 8;
 
-const createEmptyGrid = (): CellState[][] => Array.from({ length: BOARD_SIZE }, () => Array<CellState>(BOARD_SIZE).fill(null));
+const createEmptyGrid = (): CellState[][] => Array.from({ length: BOARD_SIZE }, () => Array.from({ length: BOARD_SIZE }, (): CellState => null));
 
 export class Board {
   private readonly grid: CellState[][];
