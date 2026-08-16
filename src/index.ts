@@ -1,7 +1,11 @@
 import { OthelloWindow } from "./ui/OthelloWindow";
 
+declare global {
+  // NodeGui's native widgets hold only a weak reference to their JS wrapper, so
+  // the top-level entry point must keep a strong one alive for the process lifetime.
+  var win: OthelloWindow | undefined;
+}
+
 const gameWindow = new OthelloWindow();
 gameWindow.show();
-
-// Node's GC can collect the window once no JS reference remains; keep it alive globally.
-(global as unknown as { win: OthelloWindow }).win = gameWindow;
+globalThis.win = gameWindow;
