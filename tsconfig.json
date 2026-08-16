@@ -1,6 +1,9 @@
 {
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
+    // Enabled by ever-better after measuring each at zero new type errors.
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
     // File Layout
     "rootDir": "./src",
     "outDir": "./dist",
