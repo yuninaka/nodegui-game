@@ -26,6 +26,8 @@ jobs:
         with:
           node-version: "24"
 
+      - run: corepack enable
+
       - run: yarn install --frozen-lockfile
 
       - name: lint
