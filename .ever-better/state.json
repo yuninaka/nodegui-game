@@ -2,7 +2,7 @@
   "version": 1,
   "tool": "ever-better",
   "phase": "drain",
-  "updatedAt": "2026-08-16T09:45:40.695Z",
+  "updatedAt": "2026-08-16T09:53:11.644Z",
   "frozenAt": "2026-08-16T06:38:16.675Z",
   "diagnosedAt": "2026-08-16T06:32:28.525Z",
   "diagnosedCommit": "9eaa9910931d31bb1d8cd0cf72fb202516c8d655",
@@ -71,9 +71,9 @@
       "status": "enforced"
     },
     "sonarjs/function-return-type": {
-      "baseline": 2,
-      "current": 2,
-      "status": "draining"
+      "baseline": 0,
+      "current": 0,
+      "status": "enforced"
     },
     "@typescript-eslint/restrict-template-expressions": {
       "baseline": 0,
@@ -142,6 +142,13 @@
       "rule": "knip",
       "commit": "9dd41208d48576d098f295067ce0661b8df07ed1",
       "at": "2026-08-16T09:45:40.695Z"
+    },
+    {
+      "kind": "drained",
+      "text": "2件; issue #4 の結論として src/logic/game.ts のみでルールを無効化（discriminated union の正当な戻り値を誤検知していたため）。コードは変更せず eslint.config.mjs にスコープ付きの override を追加",
+      "rule": "sonarjs/function-return-type",
+      "commit": "2f946abbad4dc688e0df283528ba066e551449a4",
+      "at": "2026-08-16T09:53:11.643Z"
     }
   ]
 }

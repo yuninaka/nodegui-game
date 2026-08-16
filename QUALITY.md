@@ -5,7 +5,7 @@ Maintained by [ever-better](https://github.com/isamu/ever-better). Numbers are r
 
 - Phase: **drain**
 - Frozen: 2026-08-16T06:38:16.675Z
-- Open violations: **2**
+- Open violations: **0**
 - Rules improved since the ceiling: **0**
 - Everything is at or below its ceiling.
 
@@ -16,8 +16,7 @@ Top to bottom. An unattended run works this list and nothing else.
 - [x] **P0 diagnose** — taken 2026-08-16T06:32:28.525Z
 - [x] **P1 bootstrap** — nothing missing
 - [x] **P2 freeze** — frozen 2026-08-16T06:38:16.675Z
-- [ ] **P3 drain** — 2 violations across 1 rules
-  - [ ] `sonarjs/function-return-type` — 2 left
+- [x] **P3 drain** — backlog empty
 - [ ] **P4 tighten** — add the next rule tier, then freeze and drain again
 - [ ] **P5 duplication and dead code** — report-only scans; extraction is judgment, not a threshold
 
@@ -25,9 +24,7 @@ Top to bottom. An unattended run works this list and nothing else.
 
 Ceiling is the count at the last freeze. It may fall and must never rise.
 
-| Rule | Ceiling | Now | Change | Status |
-| --- | ---: | ---: | ---: | --- |
-| `sonarjs/function-return-type` | 2 | 2 | 0 | draining |
+No rule violations recorded yet. Run `ever-better freeze`.
 
 ## Other counters
 
@@ -43,6 +40,7 @@ Nothing outstanding.
 
 | Date | Commit | Kind | Rule | What |
 | --- | --- | --- | --- | --- |
+| 2026-08-16 | 2f946abb | drained | sonarjs/function-return-type | 2件; issue #4 の結論として src/logic/game.ts のみでルールを無効化（discriminated union の正当な戻り値を誤検知していたため）。コードは変更せず eslint.config.mjs にスコープ付きの override を追加 |
 | 2026-08-16 | 9dd41208 | drained | knip | knip の未使用検出3件を対処: isGameOver はどこからも呼ばれない完全なデッドコードだったため削除、getFlippableStones は同一ファイル内でのみ使われていたため export を外し、ts-node は package.json の start スクリプトから -r フラグ経由で使われている（静的解析では見えない）誤検知のため knip.json の ignoreDependencies に追加。挙動に変更なし |
 | 2026-08-16 | 2c316858 | drained | @typescript-eslint/restrict-template-expressions | 13 violations, all in src/ui/OthelloWindow.ts; wrapped every numeric template-literal interpolation (pixel sizes, board row/col, stone counts) in String(...) -- output strings are identical to what the implicit coercion already produced, so no behavior change |
 | 2026-08-16 | 7b67dadb | drained | @typescript-eslint/no-confusing-void-expression | 5 violations; eslint --fix wrapped 5 arrow-shorthand callbacks (Board.forEachCell, applyMove's flip loop, two button click handlers) in braces so the void return isn't implicit -- no behavior change |
