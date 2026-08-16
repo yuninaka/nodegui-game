@@ -10,24 +10,24 @@ notices once the copies are textually similar — and independently written ones
 
 ## src/audio
 
-| Helper | Where | What it does |
-| --- | --- | --- |
-| `buildBurstPcm` | src/audio/wavBurst.ts:20 |  |
-| `parseWavFile` | src/audio/wavBurst.ts:10 |  |
-| `playClickSounds` | src/audio/playClickSound.ts:140 |  |
-| `wrapAsWavFile` | src/audio/wavBurst.ts:36 |  |
+| Helper            | Where                          | What it does |
+| ----------------- | ------------------------------ | ------------ |
+| `buildBurstPcm`   | src/audio/wavBurst.ts:20       |              |
+| `parseWavFile`    | src/audio/wavBurst.ts:10       |              |
+| `playClickSounds` | src/audio/playClickSound.ts:92 |              |
+| `wrapAsWavFile`   | src/audio/wavBurst.ts:36       |              |
 
 ## src/logic
 
-| Helper | Where | What it does |
-| --- | --- | --- |
-| `applyMove` | src/logic/rules.ts:49 |  |
-| `createInitialState` | src/logic/game.ts:11 |  |
-| `getClickRepeatCount` | src/logic/game.ts:55 |  |
-| `getFlippableStones` | src/logic/rules.ts:33 |  |
-| `getOpponent` | src/logic/rules.ts:17 |  |
-| `getValidMoves` | src/logic/rules.ts:39 |  |
-| `getWinner` | src/logic/rules.ts:61 |  |
-| `hasValidMove` | src/logic/rules.ts:59 |  |
-| `isValidMove` | src/logic/rules.ts:36 |  |
-| `playMove` | src/logic/game.ts:43 |  |
+| Helper                | Where                 | What it does |
+| --------------------- | --------------------- | ------------ |
+| `applyMove`           | src/logic/rules.ts:49 |              |
+| `createInitialState`  | src/logic/game.ts:11  |              |
+| `getClickRepeatCount` | src/logic/game.ts:55  |              |
+| `getFlippableStones`  | src/logic/rules.ts:33 |              |
+| `getOpponent`         | src/logic/rules.ts:17 |              |
+| `getValidMoves`       | src/logic/rules.ts:39 |              |
+| `getWinner`           | src/logic/rules.ts:61 |              |
+| `hasValidMove`        | src/logic/rules.ts:59 |              |
+| `isValidMove`         | src/logic/rules.ts:36 |              |
+| `playMove`            | src/logic/game.ts:43  |              |
