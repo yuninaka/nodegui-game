@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "node_modules/@nodegui/qode/binaries/qode -r ts-node/register/transpile-only src/index.ts",
-    "build": "tsc",
+    "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "format": "prettier --write .",
