@@ -124,4 +124,14 @@ export default tseslint.config(
     languageOptions: { parserOptions: { projectService: false } },
     ...tseslint.configs.disableTypeChecked,
   },
+  {
+    // `resolveNextTurn` and `playMove` return MoveOutcome, a discriminated union declared
+    // explicitly on the function signature — each `return` is a legitimate variant of it. This
+    // rule compares the literal shape of each `return` statement rather than checking
+    // assignability against the named type alias, so it flags the union itself. See #4.
+    files: ["src/logic/game.ts"],
+    rules: {
+      "sonarjs/function-return-type": "off",
+    },
+  },
 );

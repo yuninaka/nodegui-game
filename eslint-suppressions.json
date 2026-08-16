@@ -1,7 +1,2 @@
 {
-  "src/logic/game.ts": {
-    "sonarjs/function-return-type": {
-      "count": 2
-    }
-  }
 }
