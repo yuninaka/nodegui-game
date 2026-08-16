@@ -2,7 +2,7 @@
   "version": 1,
   "tool": "ever-better",
   "phase": "drain",
-  "updatedAt": "2026-08-16T09:35:53.390Z",
+  "updatedAt": "2026-08-16T09:39:22.408Z",
   "frozenAt": "2026-08-16T06:38:16.675Z",
   "diagnosedAt": "2026-08-16T06:32:28.525Z",
   "diagnosedCommit": "9eaa9910931d31bb1d8cd0cf72fb202516c8d655",
@@ -76,9 +76,9 @@
       "status": "draining"
     },
     "@typescript-eslint/restrict-template-expressions": {
-      "baseline": 13,
-      "current": 13,
-      "status": "draining"
+      "baseline": 0,
+      "current": 0,
+      "status": "enforced"
     }
   },
   "counters": {
@@ -128,6 +128,13 @@
       "rule": "@typescript-eslint/no-confusing-void-expression",
       "commit": "7b67dadbbe4800fc1abb1b640e2be076f8283bcc",
       "at": "2026-08-16T09:35:53.389Z"
+    },
+    {
+      "kind": "drained",
+      "text": "13 violations, all in src/ui/OthelloWindow.ts; wrapped every numeric template-literal interpolation (pixel sizes, board row/col, stone counts) in String(...) -- output strings are identical to what the implicit coercion already produced, so no behavior change",
+      "rule": "@typescript-eslint/restrict-template-expressions",
+      "commit": "2c31685815e16c8a8c01a5ddb188dafe21aba8b5",
+      "at": "2026-08-16T09:39:22.408Z"
     }
   ]
 }

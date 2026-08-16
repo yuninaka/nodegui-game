@@ -3,10 +3,5 @@
     "sonarjs/function-return-type": {
       "count": 2
     }
-  },
-  "src/ui/OthelloWindow.ts": {
-    "@typescript-eslint/restrict-template-expressions": {
-      "count": 13
-    }
   }
 }
