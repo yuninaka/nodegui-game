@@ -77,7 +77,9 @@ export class OthelloWindow {
     resetButton.setInlineStyle(`width: 90px; height: ${STATUS_BAR_HEIGHT_PX}px;`);
     resetButton.setStyleSheet(STATUS_BUTTON_STYLE);
     resetButton.setText("リセット");
-    resetButton.addEventListener("clicked", () => this.handleReset());
+    resetButton.addEventListener("clicked", () => {
+      this.handleReset();
+    });
 
     statusLayout.addWidget(this.turnLabel);
     statusLayout.addWidget(this.scoreLabel);
@@ -99,7 +101,9 @@ export class OthelloWindow {
         const position: Position = { row, col };
         const button = new QPushButton();
         button.setFixedSize(CELL_SIZE_PX, CELL_SIZE_PX);
-        button.addEventListener("clicked", () => this.handleCellClick(position));
+        button.addEventListener("clicked", () => {
+          this.handleCellClick(position);
+        });
         gridLayout.addWidget(button, row, col);
         buttonRow.push(button);
       }
