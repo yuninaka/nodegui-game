@@ -50,7 +50,9 @@ export const applyMove = (board: Board, player: Player, position: Position): Boa
   const flippable = getFlippableStones(board, player, position);
   const next = board.clone();
   next.setCell(position, player);
-  flippable.forEach((cell) => next.setCell(cell, player));
+  flippable.forEach((cell) => {
+    next.setCell(cell, player);
+  });
   return next;
 };
 

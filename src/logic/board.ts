@@ -41,7 +41,11 @@ export class Board {
   }
 
   forEachCell(callback: (position: Position, state: CellState) => void): void {
-    this.grid.forEach((row, rowIndex) => row.forEach((state, colIndex) => callback({ row: rowIndex, col: colIndex }, state)));
+    this.grid.forEach((row, rowIndex) => {
+      row.forEach((state, colIndex) => {
+        callback({ row: rowIndex, col: colIndex }, state);
+      });
+    });
   }
 
   countStones(player: Player): number {

@@ -1,23 +1,10 @@
 {
-  "src/logic/board.ts": {
-    "@typescript-eslint/no-confusing-void-expression": {
-      "count": 2
-    }
-  },
   "src/logic/game.ts": {
     "sonarjs/function-return-type": {
       "count": 2
     }
   },
-  "src/logic/rules.ts": {
-    "@typescript-eslint/no-confusing-void-expression": {
-      "count": 1
-    }
-  },
   "src/ui/OthelloWindow.ts": {
-    "@typescript-eslint/no-confusing-void-expression": {
-      "count": 2
-    },
     "@typescript-eslint/restrict-template-expressions": {
       "count": 13
     }

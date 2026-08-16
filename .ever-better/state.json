@@ -2,7 +2,7 @@
   "version": 1,
   "tool": "ever-better",
   "phase": "drain",
-  "updatedAt": "2026-08-16T09:33:03.513Z",
+  "updatedAt": "2026-08-16T09:35:53.390Z",
   "frozenAt": "2026-08-16T06:38:16.675Z",
   "diagnosedAt": "2026-08-16T06:32:28.525Z",
   "diagnosedCommit": "9eaa9910931d31bb1d8cd0cf72fb202516c8d655",
@@ -66,9 +66,9 @@
       "status": "enforced"
     },
     "@typescript-eslint/no-confusing-void-expression": {
-      "baseline": 5,
-      "current": 5,
-      "status": "draining"
+      "baseline": 0,
+      "current": 0,
+      "status": "enforced"
     },
     "sonarjs/function-return-type": {
       "baseline": 2,
@@ -121,6 +121,13 @@
       "rule": "id-length",
       "commit": "94c2756da78664e4a2f33c19ad64afedf2439e87",
       "at": "2026-08-16T09:33:03.512Z"
+    },
+    {
+      "kind": "drained",
+      "text": "5 violations; eslint --fix wrapped 5 arrow-shorthand callbacks (Board.forEachCell, applyMove's flip loop, two button click handlers) in braces so the void return isn't implicit -- no behavior change",
+      "rule": "@typescript-eslint/no-confusing-void-expression",
+      "commit": "7b67dadbbe4800fc1abb1b640e2be076f8283bcc",
+      "at": "2026-08-16T09:35:53.389Z"
     }
   ]
 }
