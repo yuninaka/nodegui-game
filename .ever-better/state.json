@@ -2,7 +2,7 @@
   "version": 1,
   "tool": "ever-better",
   "phase": "drain",
-  "updatedAt": "2026-08-16T09:28:40.166Z",
+  "updatedAt": "2026-08-16T09:33:03.513Z",
   "frozenAt": "2026-08-16T06:38:16.675Z",
   "diagnosedAt": "2026-08-16T06:32:28.525Z",
   "diagnosedCommit": "9eaa9910931d31bb1d8cd0cf72fb202516c8d655",
@@ -61,9 +61,9 @@
       "status": "enforced"
     },
     "id-length": {
-      "baseline": 3,
-      "current": 3,
-      "status": "draining"
+      "baseline": 0,
+      "current": 0,
+      "status": "enforced"
     },
     "@typescript-eslint/no-confusing-void-expression": {
       "baseline": 5,
@@ -114,6 +114,13 @@
       "rule": "sonarjs/function-return-type",
       "commit": "ff86735aa6e8f0d45926b341d585efb62d068ea7",
       "at": "2026-08-16T09:28:40.165Z"
+    },
+    {
+      "kind": "drained",
+      "text": "3 violations; renamed board.ts's forEach index params (r/c -> rowIndex/colIndex) and OthelloWindow's map callback param (p -> move) -- no behavior change",
+      "rule": "id-length",
+      "commit": "94c2756da78664e4a2f33c19ad64afedf2439e87",
+      "at": "2026-08-16T09:33:03.512Z"
     }
   ]
 }
