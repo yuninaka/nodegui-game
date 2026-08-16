@@ -10,9 +10,6 @@
     },
     "id-length": {
       "count": 2
-    },
-    "sonarjs/argument-type": {
-      "count": 1
     }
   },
   "src/logic/game.ts": {
