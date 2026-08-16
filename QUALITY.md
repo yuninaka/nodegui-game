@@ -5,7 +5,7 @@ Maintained by [ever-better](https://github.com/isamu/ever-better). Numbers are r
 
 - Phase: **drain**
 - Frozen: 2026-08-16T06:38:16.675Z
-- Open violations: **23**
+- Open violations: **20**
 - Rules improved since the ceiling: **0**
 - Everything is at or below its ceiling.
 
@@ -16,9 +16,8 @@ Top to bottom. An unattended run works this list and nothing else.
 - [x] **P0 diagnose** — taken 2026-08-16T06:32:28.525Z
 - [x] **P1 bootstrap** — nothing missing
 - [x] **P2 freeze** — frozen 2026-08-16T06:38:16.675Z
-- [ ] **P3 drain** — 23 violations across 4 rules
+- [ ] **P3 drain** — 20 violations across 3 rules
   - [ ] `sonarjs/function-return-type` — 2 left
-  - [ ] `id-length` — 3 left
   - [ ] `@typescript-eslint/no-confusing-void-expression` — 5 left
   - [ ] `@typescript-eslint/restrict-template-expressions` — 13 left
 - [ ] **P4 tighten** — add the next rule tier, then freeze and drain again
@@ -32,7 +31,6 @@ Ceiling is the count at the last freeze. It may fall and must never rise.
 | --- | ---: | ---: | ---: | --- |
 | `@typescript-eslint/restrict-template-expressions` | 13 | 13 | 0 | draining |
 | `@typescript-eslint/no-confusing-void-expression` | 5 | 5 | 0 | draining |
-| `id-length` | 3 | 3 | 0 | draining |
 | `sonarjs/function-return-type` | 2 | 2 | 0 | draining |
 
 ## Other counters
@@ -49,6 +47,7 @@ Nothing outstanding.
 
 | Date | Commit | Kind | Rule | What |
 | --- | --- | --- | --- | --- |
+| 2026-08-16 | 94c2756d | drained | id-length | 3 violations; renamed board.ts's forEach index params (r/c -> rowIndex/colIndex) and OthelloWindow's map callback param (p -> move) -- no behavior change |
 | 2026-08-16 | ff86735a | issue | sonarjs/function-return-type | opened #4 -- flags idiomatic discriminated-union returns (MoveOutcome) in src/logic/game.ts; rule-vs-code call for the owner |
 | 2026-08-16 | ecf2d3b8 | drained | @typescript-eslint/consistent-type-assertions | 2 violations; the double 'as unknown as {win}' cast on global was asserting a property that doesn't exist on globalThis's type. Replaced with a proper 'declare global { var win }' ambient augmentation -- same runtime behavior (NodeGui widgets hold only a weak ref from native to JS, so the entry point must keep a strong JS reference alive), no more lying to the compiler |
 | 2026-08-16 | 76458303 | drained | sonarjs/argument-type | 1 violation; false-flag on Array<CellState>(n).fill(null) via the generic-constructor-call form — rewrote as nested Array.from with an explicit CellState return type, same behavior |

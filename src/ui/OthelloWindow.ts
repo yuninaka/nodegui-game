@@ -143,7 +143,7 @@ export class OthelloWindow {
     this.turnLabel.setText(`手番: ${PLAYER_LABEL[this.state.currentPlayer]}`);
     this.scoreLabel.setText(`黒: ${this.state.board.countStones("black")} / 白: ${this.state.board.countStones("white")}`);
 
-    const validMoves = new Set(getValidMoves(this.state.board, this.state.currentPlayer).map((p) => `${p.row},${p.col}`));
+    const validMoves = new Set(getValidMoves(this.state.board, this.state.currentPlayer).map((move) => `${move.row},${move.col}`));
 
     this.state.board.forEachCell((position, cellState) => {
       const button = this.cellButtons[position.row]?.[position.col];

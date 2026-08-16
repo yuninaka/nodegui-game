@@ -2,9 +2,6 @@
   "src/logic/board.ts": {
     "@typescript-eslint/no-confusing-void-expression": {
       "count": 2
-    },
-    "id-length": {
-      "count": 2
     }
   },
   "src/logic/game.ts": {
@@ -23,9 +20,6 @@
     },
     "@typescript-eslint/restrict-template-expressions": {
       "count": 13
-    },
-    "id-length": {
-      "count": 1
     }
   }
 }
