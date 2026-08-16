@@ -1,6 +1,5 @@
 node_modules/
 dist/
-.ever-better/
 .yarn/
 *.log
 .DS_Store
