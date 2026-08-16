@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "tool": "ever-better",
+  "phase": "drain",
+  "updatedAt": "2026-08-16T06:38:16.676Z",
+  "frozenAt": "2026-08-16T06:38:16.675Z",
+  "diagnosedAt": "2026-08-16T06:32:28.525Z",
+  "diagnosedCommit": "9eaa9910931d31bb1d8cd0cf72fb202516c8d655",
+  "diagnosis": {
+    "packageManager": "yarn",
+    "language": "typescript",
+    "framework": "none",
+    "runtime": "node",
+    "typescriptFileRatio": 1,
+    "tooling": {
+      "eslint": "flat",
+      "prettier": true,
+      "testRunner": "vitest",
+      "knip": true,
+      "jscpd": true,
+      "agentInstructions": [
+        "CLAUDE.md"
+      ]
+    },
+    "scripts": {
+      "lint": true,
+      "format": true,
+      "build": true,
+      "typecheck": true,
+      "test": true
+    },
+    "ci": {
+      "present": true,
+      "runners": [
+        "macos-latest",
+        "ubuntu-latest",
+        "windows-latest"
+      ],
+      "runsLint": true,
+      "runsTest": true,
+      "runsBuild": true,
+      "runsTypecheck": true,
+      "runsEverBetterCheck": true
+    },
+    "sizes": {
+      "total": 6,
+      "overFileLimit": 0,
+      "largest": []
+    },
+    "gaps": []
+  },
+  "rules": {
+    "@typescript-eslint/consistent-type-assertions": {
+      "baseline": 2,
+      "current": 2,
+      "status": "draining"
+    },
+    "sonarjs/argument-type": {
+      "baseline": 1,
+      "current": 1,
+      "status": "draining"
+    },
+    "id-length": {
+      "baseline": 3,
+      "current": 3,
+      "status": "draining"
+    },
+    "@typescript-eslint/no-confusing-void-expression": {
+      "baseline": 5,
+      "current": 5,
+      "status": "draining"
+    },
+    "sonarjs/function-return-type": {
+      "baseline": 2,
+      "current": 2,
+      "status": "draining"
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "baseline": 13,
+      "current": 13,
+      "status": "draining"
+    }
+  },
+  "counters": {
+    "eslint:warnings": {
+      "baseline": 1,
+      "current": 1
+    }
+  },
+  "log": [
+    {
+      "kind": "note",
+      "text": "typescript stayed on 5.9.3 (latest is 7.0.2): typescript-eslint@8.67.0 peer range is >=4.8.4 <6.1.0, and Yarn 4.12's compat/typescript patch also fails to fetch against 7.0.2 in this environment. eslint/@eslint/js/prettier/vitest/knip/typescript-eslint are all already at latest.",
+      "commit": "9eaa9910931d31bb1d8cd0cf72fb202516c8d655",
+      "at": "2026-08-16T06:33:24.081Z"
+    }
+  ]
+}

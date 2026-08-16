@@ -16,12 +16,7 @@ export type GameResult = Player | "draw";
 
 export const getOpponent = (player: Player): Player => (player === "black" ? "white" : "black");
 
-const getFlippableInDirection = (
-  board: Board,
-  player: Player,
-  origin: Position,
-  direction: Position,
-): Position[] => {
+const getFlippableInDirection = (board: Board, player: Player, origin: Position, direction: Position): Position[] => {
   const opponent = getOpponent(player);
   const flippable: Position[] = [];
   let current: Position = { row: origin.row + direction.row, col: origin.col + direction.col };
@@ -61,8 +56,7 @@ export const applyMove = (board: Board, player: Player, position: Position): Boa
 
 export const hasValidMove = (board: Board, player: Player): boolean => getValidMoves(board, player).length > 0;
 
-export const isGameOver = (board: Board): boolean =>
-  !hasValidMove(board, "black") && !hasValidMove(board, "white");
+export const isGameOver = (board: Board): boolean => !hasValidMove(board, "black") && !hasValidMove(board, "white");
 
 export const getWinner = (board: Board): GameResult => {
   const blackCount = board.countStones("black");
