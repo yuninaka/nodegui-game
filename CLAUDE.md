@@ -7,8 +7,10 @@ NodeGui + TypeScript によるローカル2Dパズルゲームのプロトタイ
 - パッケージマネージャ: yarn（Yarn 4 / Berry）。`.yarnrc.yml` で `nodeLinker: node-modules` を指定 — `@nodegui/nodegui` はネイティブアドオンのため PnP では壊れる
 - `npm start` / `yarn start`: 同梱の `qode` バイナリ + `ts-node/register/transpile-only` で起動する。素の `node` では Qt バックエンドのネイティブアドオンをロードできず、Qtのイベントループも回せない
 - `yarn typecheck`: 型チェックのみ（`tsc --noEmit`）
-- `yarn build`: `dist/` へコンパイル
-- フォーマッタ・リンタ・テストランナー: 未整備（ever-better のブートストラップで追加予定）
+- `yarn build`: `dist/` へコンパイル（`tsconfig.build.json`、`src/` のみ）
+- `yarn lint` / `yarn format` / `yarn test`（vitest, `test/` 配下）/ `yarn knip`（dead code検出）
+
+新しいヘルパー関数を書く前に `docs/shared-helpers.md`（`ever-better catalog` が生成）を確認すること。既存の実装の再発明を防ぐためのカタログ。
 
 ## 構成
 
@@ -24,4 +26,4 @@ NodeGui + TypeScript によるローカル2Dパズルゲームのプロトタイ
 
 ## 生成ファイル（手編集禁止）
 
-- `.ever-better/state.json`, `eslint-suppressions.json`, `QUALITY.md` — `ever-better` CLI が書き込む
+- `.ever-better/state.json`, `eslint-suppressions.json`, `QUALITY.md`, `docs/shared-helpers.md` — `ever-better` CLI が書き込む

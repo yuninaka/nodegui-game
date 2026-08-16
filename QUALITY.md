@@ -43,6 +43,7 @@ Nothing outstanding.
 
 | Date | Commit | Kind | Rule | What |
 | --- | --- | --- | --- | --- |
+| 2026-08-16 | 9dd41208 | drained | knip | knip の未使用検出3件を対処: isGameOver はどこからも呼ばれない完全なデッドコードだったため削除、getFlippableStones は同一ファイル内でのみ使われていたため export を外し、ts-node は package.json の start スクリプトから -r フラグ経由で使われている（静的解析では見えない）誤検知のため knip.json の ignoreDependencies に追加。挙動に変更なし |
 | 2026-08-16 | 2c316858 | drained | @typescript-eslint/restrict-template-expressions | 13 violations, all in src/ui/OthelloWindow.ts; wrapped every numeric template-literal interpolation (pixel sizes, board row/col, stone counts) in String(...) -- output strings are identical to what the implicit coercion already produced, so no behavior change |
 | 2026-08-16 | 7b67dadb | drained | @typescript-eslint/no-confusing-void-expression | 5 violations; eslint --fix wrapped 5 arrow-shorthand callbacks (Board.forEachCell, applyMove's flip loop, two button click handlers) in braces so the void return isn't implicit -- no behavior change |
 | 2026-08-16 | 94c2756d | drained | id-length | 3 violations; renamed board.ts's forEach index params (r/c -> rowIndex/colIndex) and OthelloWindow's map callback param (p -> move) -- no behavior change |

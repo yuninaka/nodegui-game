@@ -2,7 +2,7 @@
   "version": 1,
   "tool": "ever-better",
   "phase": "drain",
-  "updatedAt": "2026-08-16T09:39:22.408Z",
+  "updatedAt": "2026-08-16T09:45:40.695Z",
   "frozenAt": "2026-08-16T06:38:16.675Z",
   "diagnosedAt": "2026-08-16T06:32:28.525Z",
   "diagnosedCommit": "9eaa9910931d31bb1d8cd0cf72fb202516c8d655",
@@ -135,6 +135,13 @@
       "rule": "@typescript-eslint/restrict-template-expressions",
       "commit": "2c31685815e16c8a8c01a5ddb188dafe21aba8b5",
       "at": "2026-08-16T09:39:22.408Z"
+    },
+    {
+      "kind": "drained",
+      "text": "knip の未使用検出3件を対処: isGameOver はどこからも呼ばれない完全なデッドコードだったため削除、getFlippableStones は同一ファイル内でのみ使われていたため export を外し、ts-node は package.json の start スクリプトから -r フラグ経由で使われている（静的解析では見えない）誤検知のため knip.json の ignoreDependencies に追加。挙動に変更なし",
+      "rule": "knip",
+      "commit": "9dd41208d48576d098f295067ce0661b8df07ed1",
+      "at": "2026-08-16T09:45:40.695Z"
     }
   ]
 }
