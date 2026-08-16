@@ -1,6 +1,7 @@
 import { AlignmentFlag, FlexLayout, QGridLayout, QLabel, QMainWindow, QMessageBox, QPushButton, QWidget } from "@nodegui/nodegui";
+import { playClickSounds } from "../audio/playClickSound";
 import { BOARD_SIZE } from "../logic/board";
-import { GameState, createInitialState, playMove } from "../logic/game";
+import { GameState, createInitialState, getClickRepeatCount, playMove } from "../logic/game";
 import { GameResult, getValidMoves } from "../logic/rules";
 import { Player, Position } from "../logic/types";
 
@@ -121,6 +122,7 @@ export class OthelloWindow {
 
     this.state = outcome.state;
     this.render();
+    playClickSounds(getClickRepeatCount(outcome));
 
     if (outcome.type === "passed") {
       this.showMessage(`${PLAYER_LABEL[outcome.skippedPlayer]}は打てる場所がないためパスしました`);

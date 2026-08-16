@@ -6,17 +6,27 @@ Read this before writing a helper. The failure it exists to prevent is the same 
 a sixth time under a sixth name, which no linter reports and which duplication detection only
 notices once the copies are textually similar — and independently written ones rarely are.
 
-8 exported functions.
+13 exported functions.
+
+## src/audio
+
+| Helper            | Where                          | What it does |
+| ----------------- | ------------------------------ | ------------ |
+| `buildClipBurst`  | src/audio/wavBurst.ts:39       |              |
+| `parseWavFile`    | src/audio/wavBurst.ts:10       |              |
+| `playClickSounds` | src/audio/playClickSound.ts:75 |              |
 
 ## src/logic
 
-| Helper | Where | What it does |
-| --- | --- | --- |
-| `applyMove` | src/logic/rules.ts:49 |  |
-| `createInitialState` | src/logic/game.ts:11 |  |
-| `getOpponent` | src/logic/rules.ts:17 |  |
-| `getValidMoves` | src/logic/rules.ts:39 |  |
-| `getWinner` | src/logic/rules.ts:61 |  |
-| `hasValidMove` | src/logic/rules.ts:59 |  |
-| `isValidMove` | src/logic/rules.ts:36 |  |
-| `playMove` | src/logic/game.ts:42 |  |
+| Helper                | Where                 | What it does |
+| --------------------- | --------------------- | ------------ |
+| `applyMove`           | src/logic/rules.ts:49 |              |
+| `createInitialState`  | src/logic/game.ts:11  |              |
+| `getClickRepeatCount` | src/logic/game.ts:55  |              |
+| `getFlippableStones`  | src/logic/rules.ts:33 |              |
+| `getOpponent`         | src/logic/rules.ts:17 |              |
+| `getValidMoves`       | src/logic/rules.ts:39 |              |
+| `getWinner`           | src/logic/rules.ts:61 |              |
+| `hasValidMove`        | src/logic/rules.ts:59 |              |
+| `isValidMove`         | src/logic/rules.ts:36 |              |
+| `playMove`            | src/logic/game.ts:43  |              |

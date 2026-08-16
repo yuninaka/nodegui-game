@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { BOARD_SIZE, Board } from "../src/logic/board";
-import { GameState, createInitialState, playMove } from "../src/logic/game";
+import { GameState, createInitialState, getClickRepeatCount, playMove } from "../src/logic/game";
 
 describe("createInitialState", () => {
   it("starts with black to move on the standard opening", () => {
@@ -25,6 +25,7 @@ describe("playMove", () => {
     }
     expect(outcome.state.currentPlayer).toBe("white");
     expect(outcome.state.board.countStones("black")).toBe(4);
+    expect(outcome.flippedCount).toBe(1);
   });
 
   it("passes back to the mover when the opponent has no legal move", () => {
@@ -42,6 +43,7 @@ describe("playMove", () => {
     }
     expect(outcome.skippedPlayer).toBe("white");
     expect(outcome.state.currentPlayer).toBe("black");
+    expect(outcome.flippedCount).toBe(2);
   });
 
   it("ends the game and declares a winner once the board fills up", () => {
@@ -61,5 +63,18 @@ describe("playMove", () => {
     }
     expect(outcome.winner).toBe("black");
     expect(outcome.state.isOver).toBe(true);
+    expect(outcome.flippedCount).toBe(1);
+  });
+});
+
+describe("getClickRepeatCount", () => {
+  it("is zero for an invalid move", () => {
+    const outcome = playMove(createInitialState(), { row: 0, col: 0 });
+    expect(getClickRepeatCount(outcome)).toBe(0);
+  });
+
+  it("is one plus the number of flipped stones for a legal move", () => {
+    const outcome = playMove(createInitialState(), { row: 2, col: 3 });
+    expect(getClickRepeatCount(outcome)).toBe(2);
   });
 });

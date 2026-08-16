@@ -1,5 +1,6 @@
 node_modules/
 dist/
 .yarn/
+.audio-cache/
 *.log
 .DS_Store
