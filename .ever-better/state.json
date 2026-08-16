@@ -2,7 +2,7 @@
   "version": 1,
   "tool": "ever-better",
   "phase": "drain",
-  "updatedAt": "2026-08-16T09:25:36.583Z",
+  "updatedAt": "2026-08-16T09:28:40.166Z",
   "frozenAt": "2026-08-16T06:38:16.675Z",
   "diagnosedAt": "2026-08-16T06:32:28.525Z",
   "diagnosedCommit": "9eaa9910931d31bb1d8cd0cf72fb202516c8d655",
@@ -107,6 +107,13 @@
       "rule": "@typescript-eslint/consistent-type-assertions",
       "commit": "ecf2d3b8b4a0635a25ac2c97d82bb783625f4036",
       "at": "2026-08-16T09:25:36.582Z"
+    },
+    {
+      "kind": "issue",
+      "text": "opened #4 -- flags idiomatic discriminated-union returns (MoveOutcome) in src/logic/game.ts; rule-vs-code call for the owner",
+      "rule": "sonarjs/function-return-type",
+      "commit": "ff86735aa6e8f0d45926b341d585efb62d068ea7",
+      "at": "2026-08-16T09:28:40.165Z"
     }
   ]
 }
