@@ -14,23 +14,23 @@ import { GameResult, getValidMoves } from "../logic/rules";
 import { Player, Position } from "../logic/types";
 
 const CELL_SIZE_PX = 52;
+const BOARD_PIXELS_PX = CELL_SIZE_PX * BOARD_SIZE;
+const STATUS_BAR_HEIGHT_PX = 44;
 const WINDOW_WIDTH_PX = 470;
 const WINDOW_HEIGHT_PX = 600;
 
-const STONE_MARK: Record<Player, string> = { black: "●", white: "○" };
+const STONE_MARK = "●";
+const STONE_TEXT_COLOR: Record<Player, string> = { black: "#0a0a0a", white: "#fafafa" };
 const PLAYER_LABEL: Record<Player, string> = { black: "黒", white: "白" };
 const RESULT_LABEL: Record<GameResult, string> = { black: "黒の勝ち", white: "白の勝ち", draw: "引き分け" };
 
-const CELL_STYLE_BASE = `
-  background-color: #2e7d32;
+const CELL_BACKGROUND_BASE = "#2e7d32";
+const CELL_BACKGROUND_HINT = "#388e3c";
+
+const buildCellStyle = (backgroundColor: string, textColor: string): string => `
+  background-color: ${backgroundColor};
   border: 1px solid #1b5e20;
-  color: white;
-  font-size: 26px;
-`;
-const CELL_STYLE_HINT = `
-  background-color: #388e3c;
-  border: 1px solid #1b5e20;
-  color: white;
+  color: ${textColor};
   font-size: 26px;
 `;
 
@@ -66,15 +66,19 @@ export class OthelloWindow {
   private buildStatusBar(): QWidget {
     const statusBar = new QWidget();
     statusBar.setInlineStyle(
-      "flex-direction: row; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 12px;",
+      `flex-direction: row; justify-content: space-between; align-items: center; ` +
+        `width: ${BOARD_PIXELS_PX}px; height: ${STATUS_BAR_HEIGHT_PX}px; margin-bottom: 12px;`,
     );
     const statusLayout = new FlexLayout();
     statusBar.setLayout(statusLayout);
 
+    this.turnLabel.setInlineStyle("width: 120px; height: 100%;");
     this.turnLabel.setAlignment(AlignmentFlag.AlignVCenter);
+    this.scoreLabel.setInlineStyle("width: 160px; height: 100%;");
     this.scoreLabel.setAlignment(AlignmentFlag.AlignVCenter);
 
     const resetButton = new QPushButton();
+    resetButton.setInlineStyle("width: 90px; height: 100%;");
     resetButton.setText("リセット");
     resetButton.addEventListener("clicked", () => this.handleReset());
 
@@ -86,6 +90,7 @@ export class OthelloWindow {
 
   private buildBoardWidget(): QWidget {
     const boardWidget = new QWidget();
+    boardWidget.setInlineStyle(`width: ${BOARD_PIXELS_PX}px; height: ${BOARD_PIXELS_PX}px;`);
     const gridLayout = new QGridLayout();
     gridLayout.setHorizontalSpacing(0);
     gridLayout.setVerticalSpacing(0);
@@ -153,9 +158,11 @@ export class OthelloWindow {
         return;
       }
 
-      button.setText(cellState ? STONE_MARK[cellState] : "");
+      button.setText(cellState ? STONE_MARK : "");
       const isPlayable = !this.state.isOver && validMoves.has(`${position.row},${position.col}`);
-      button.setStyleSheet(isPlayable ? CELL_STYLE_HINT : CELL_STYLE_BASE);
+      const backgroundColor = isPlayable ? CELL_BACKGROUND_HINT : CELL_BACKGROUND_BASE;
+      const textColor = cellState ? STONE_TEXT_COLOR[cellState] : backgroundColor;
+      button.setStyleSheet(buildCellStyle(backgroundColor, textColor));
       button.setEnabled(isPlayable);
     });
   }
