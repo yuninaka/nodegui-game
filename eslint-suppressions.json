@@ -1,9 +1,4 @@
 {
-  "src/index.ts": {
-    "@typescript-eslint/consistent-type-assertions": {
-      "count": 2
-    }
-  },
   "src/logic/board.ts": {
     "@typescript-eslint/no-confusing-void-expression": {
       "count": 2

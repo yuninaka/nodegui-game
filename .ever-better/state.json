@@ -2,7 +2,7 @@
   "version": 1,
   "tool": "ever-better",
   "phase": "drain",
-  "updatedAt": "2026-08-16T09:20:55.343Z",
+  "updatedAt": "2026-08-16T09:25:36.583Z",
   "frozenAt": "2026-08-16T06:38:16.675Z",
   "diagnosedAt": "2026-08-16T06:32:28.525Z",
   "diagnosedCommit": "9eaa9910931d31bb1d8cd0cf72fb202516c8d655",
@@ -51,9 +51,9 @@
   },
   "rules": {
     "@typescript-eslint/consistent-type-assertions": {
-      "baseline": 2,
-      "current": 2,
-      "status": "draining"
+      "baseline": 0,
+      "current": 0,
+      "status": "enforced"
     },
     "sonarjs/argument-type": {
       "baseline": 0,
@@ -100,6 +100,13 @@
       "rule": "sonarjs/argument-type",
       "commit": "764583037bb51138eed7195ce0180b117253e2c8",
       "at": "2026-08-16T09:20:55.342Z"
+    },
+    {
+      "kind": "drained",
+      "text": "2 violations; the double 'as unknown as {win}' cast on global was asserting a property that doesn't exist on globalThis's type. Replaced with a proper 'declare global { var win }' ambient augmentation -- same runtime behavior (NodeGui widgets hold only a weak ref from native to JS, so the entry point must keep a strong JS reference alive), no more lying to the compiler",
+      "rule": "@typescript-eslint/consistent-type-assertions",
+      "commit": "ecf2d3b8b4a0635a25ac2c97d82bb783625f4036",
+      "at": "2026-08-16T09:25:36.582Z"
     }
   ]
 }
