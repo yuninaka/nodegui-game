@@ -27,6 +27,9 @@ const RESULT_LABEL: Record<GameResult, string> = { black: "黒の勝ち", white:
 const CELL_BACKGROUND_BASE = "#2e7d32";
 const CELL_BACKGROUND_HINT = "#388e3c";
 
+const STATUS_LABEL_STYLE = "color: #1a1a1a; font-size: 16px;";
+const STATUS_BUTTON_STYLE = "color: #1a1a1a; font-size: 14px; background-color: #e0e0e0; border: 1px solid #9e9e9e;";
+
 const buildCellStyle = (backgroundColor: string, textColor: string): string => `
   background-color: ${backgroundColor};
   border: 1px solid #1b5e20;
@@ -72,13 +75,16 @@ export class OthelloWindow {
     const statusLayout = new FlexLayout();
     statusBar.setLayout(statusLayout);
 
-    this.turnLabel.setInlineStyle("width: 120px; height: 100%;");
+    this.turnLabel.setInlineStyle(`width: 120px; height: ${STATUS_BAR_HEIGHT_PX}px;`);
+    this.turnLabel.setStyleSheet(STATUS_LABEL_STYLE);
     this.turnLabel.setAlignment(AlignmentFlag.AlignVCenter);
-    this.scoreLabel.setInlineStyle("width: 160px; height: 100%;");
+    this.scoreLabel.setInlineStyle(`width: 160px; height: ${STATUS_BAR_HEIGHT_PX}px;`);
+    this.scoreLabel.setStyleSheet(STATUS_LABEL_STYLE);
     this.scoreLabel.setAlignment(AlignmentFlag.AlignVCenter);
 
     const resetButton = new QPushButton();
-    resetButton.setInlineStyle("width: 90px; height: 100%;");
+    resetButton.setInlineStyle(`width: 90px; height: ${STATUS_BAR_HEIGHT_PX}px;`);
+    resetButton.setStyleSheet(STATUS_BUTTON_STYLE);
     resetButton.setText("リセット");
     resetButton.addEventListener("clicked", () => this.handleReset());
 
