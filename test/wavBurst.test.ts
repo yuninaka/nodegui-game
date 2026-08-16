@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildClipBurst, parseWavFile } from "../src/audio/wavBurst";
+import { buildBurstPcm, parseWavFile, wrapAsWavFile } from "../src/audio/wavBurst";
 
 const makeClip = (pcmData: Buffer) => ({
   channels: 1,
@@ -25,22 +25,39 @@ describe("parseWavFile", () => {
   });
 });
 
-describe("buildClipBurst", () => {
-  it("repeats the clip with silence gaps and a matching data-size header", () => {
+describe("buildBurstPcm", () => {
+  it("repeats the clip with silence gaps in between", () => {
     const clip = makeClip(Buffer.from([10, 20]));
-    const burst = buildClipBurst(clip, 3, 2); // 2ms gap at 1000Hz -> 2 samples -> 4 bytes per gap
-
-    const dataSize = burst.readUInt32LE(40);
-    expect(dataSize).toBe(2 * 3 + 4 * 2); // 3 clips (2 bytes each) + 2 gaps (4 bytes each)
-    expect(burst).toHaveLength(44 + dataSize);
-
-    const pcmData = burst.subarray(44);
+    // 2ms gap at 1000Hz -> 2 samples -> 4 bytes per gap
+    const pcmData = buildBurstPcm(clip, 3, 2);
     expect(Array.from(pcmData)).toEqual([10, 20, 0, 0, 0, 0, 10, 20, 0, 0, 0, 0, 10, 20]);
   });
 
   it("has no trailing gap for a single repeat", () => {
     const clip = makeClip(Buffer.from([5, 6]));
-    const burst = buildClipBurst(clip, 1, 45);
-    expect(burst.subarray(44)).toEqual(Buffer.from([5, 6]));
+    const pcmData = buildBurstPcm(clip, 1, 45);
+    expect(pcmData).toEqual(Buffer.from([5, 6]));
+  });
+});
+
+describe("wrapAsWavFile", () => {
+  it("writes a header whose data size matches the PCM payload", () => {
+    const clip = makeClip(Buffer.from([1, 2, 3, 4]));
+    const wavFile = wrapAsWavFile(clip, clip.pcmData);
+
+    expect(wavFile.readUInt32LE(40)).toBe(4);
+    expect(wavFile).toHaveLength(44 + 4);
+    expect(wavFile.subarray(44)).toEqual(clip.pcmData);
+  });
+
+  it("round-trips through parseWavFile", () => {
+    const clip = makeClip(Buffer.from([9, 8, 7, 6]));
+    const wavFile = wrapAsWavFile(clip, clip.pcmData);
+    const parsed = parseWavFile(wavFile);
+
+    expect(parsed.channels).toBe(clip.channels);
+    expect(parsed.sampleRateHz).toBe(clip.sampleRateHz);
+    expect(parsed.bitsPerSample).toBe(clip.bitsPerSample);
+    expect(parsed.pcmData).toEqual(clip.pcmData);
   });
 });
